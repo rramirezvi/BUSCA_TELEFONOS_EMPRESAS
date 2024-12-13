@@ -44,7 +44,7 @@ def buscar_numeros_empresa(empresa):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    numeros = {"empresa": "", "numeros": []}  # Inicializar vacíos
+    numeros = None  # Inicializar vacíos
     if request.method == "POST":
         empresa = request.form.get("empresa")
         if empresa:
