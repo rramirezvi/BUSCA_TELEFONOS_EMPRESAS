@@ -24,12 +24,12 @@ def buscar_numeros_empresa(empresa):
     numeros = pattern.findall(soup.text)
 
     # Eliminar duplicados
-    return list(set(numeros))
+    return {"empresa": empresa, "numeros": list(set(numeros))}
 
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    numeros = []
+    numeros = {"empresa": "", "numeros": []}  # Inicializar vacíos
     if request.method == "POST":
         empresa = request.form.get("empresa")
         if empresa:
